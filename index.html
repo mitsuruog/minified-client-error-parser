@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Source map original position</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="./src/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+    <script src="https://unpkg.com/source-map@0.7.3/dist/source-map.js"></script>
+    <script>
+        sourceMap.SourceMapConsumer.initialize({
+            "lib/mappings.wasm": "https://unpkg.com/source-map@0.7.3/lib/mappings.wasm"
+        });
+    </script>
+    <script src="./src/main.js"></script>
+  </head>
+  <body>
+
+    <nav class="navbar is-fixed-top is-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          Source Map
+        </a>
+      </div>
+    </nav>
+
+    <div class="main container">
+      <form class="form">
+        <div class="field">
+          <label class="label" for="sourcemap">Map File</label>
+          <input type="file" id="sourcemap" name="sourcemap" class="file">
+        </div>
+        <div class="field">
+          <label class="label" for="lineNo">Line No</label>
+          <input type="number" id="lineNo" name="lineNo" class="input">
+        </div>
+        <div class="field">
+          <label class="label" for="columnNo">Column No</label>
+          <input type="number" id="columnNo" name="columnNo" class="input">
+        </div>
+        <div class="field">
+          <button type="button" class="button is-info">Get original position</button>
+        </div>
+      </form>
+      <section class="result-panel panel">
+        <p class="subtitle">Result:</p>
+        <pre><code class="result"></code></pre>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          by <a href="https://github.com/mitsuruog">mitsuruog</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
